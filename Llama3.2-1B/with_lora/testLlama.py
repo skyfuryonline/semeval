@@ -94,6 +94,8 @@ translate_dict={
 tokenizer.add_special_tokens({'pad_token': '[PAD]'})
 #下面这句话必须加上
 model.resize_token_embeddings(len(tokenizer))  # 更新模型的token嵌入层
+# 因为添加了一个新的token，导致最后推理的时候加载模型维度对不上？
+# 考虑如何处理
 
 print(tokenizer.pad_token)
 
